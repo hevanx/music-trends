@@ -1,7 +1,7 @@
 import { getCurrentTrends, getTrendsHistory } from '@/lib/storage';
 import { TrendsDisplay, EmptyState, ArchiveList } from '@/components/TrendsDisplay';
 
-export const revalidate = 3600;
+export const dynamic = 'force-dynamic';
 
 const GENRES = ['alt rock', 'post hardcore', 'emo', 'post punk'];
 
