@@ -60,5 +60,6 @@ Include 4-5 hooks, 3-4 formats, 4-5 angles, 3-4 dying trends. Everything must be
   const content = message.content[0];
   if (content.type !== 'text') throw new Error('Unexpected response type from Claude');
 
-  return JSON.parse(content.text) as TrendsData;
+  const raw = content.text.replace(/^```(?:json)?\s*/i, '').replace(/```\s*$/i, '').trim();
+  return JSON.parse(raw) as TrendsData;
 }
