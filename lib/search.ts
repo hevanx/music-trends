@@ -7,8 +7,8 @@ async function searchTavily(query: string): Promise<string> {
     body: JSON.stringify({
       api_key: process.env.TAVILY_API_KEY,
       query,
-      search_depth: 'advanced',
-      max_results: 5,
+      search_depth: 'basic',
+      max_results: 3,
       include_answer: true,
     }),
   });
@@ -25,9 +25,8 @@ async function searchTavily(query: string): Promise<string> {
 
 export async function gatherTrendData(): Promise<string> {
   const queries = [
-    'TikTok music marketing hooks trending 2025 alt rock emo post hardcore indie artists',
-    'Instagram Reels music content strategy 2025 independent artist fan engagement growth',
-    'TikTok fan first music content what is working 2025 scene based music creators',
+    'TikTok Reels music marketing hooks trending 2025 alt rock emo post hardcore artists',
+    'fan first music content strategy TikTok Reels 2025 indie artist scene growth',
   ];
 
   const results = await Promise.all(queries.map(searchTavily));
